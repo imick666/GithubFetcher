@@ -6,3 +6,24 @@
 //
 
 import Foundation
+import UIKit
+
+protocol Coordinator {
+    
+    var chilCoordinators: [Coordinator] { get set }
+    var navigationController: UINavigationController { get set }
+    
+    func start()
+}
+
+final class MainCoordinator: Coordinator {
+    var chilCoordinators = [Coordinator]()
+    var navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func start() {
+    }
+}
