@@ -16,7 +16,7 @@ class SearchListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    weak var viewModel: SearchListViewModel!
+    var viewModel: SearchListViewModel!
     
     private var bag = DisposeBag()
     
@@ -25,28 +25,37 @@ class SearchListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(SearchListTableViewCell.self, forCellReuseIdentifier: "cell")
-
+        let nib = UINib(nibName: ViewConstants.CellsConstants.SearchListTableViewCell.nibName, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: ViewConstants.CellsConstants.SearchListTableViewCell.reusableIdentifier)
+        tableView.tableFooterView = UIView()
+        
+        binOutput()
+        bindInput()
     }
     
     // MARK: - Methodes
     
-    private func binInput() {
+    private func binOutput() {
         bag.insert(
             
             // Table View
-            viewModel.output.items.drive(tableView.rx.items(cellIdentifier: "cell", cellType: SearchListTableViewCell.self)) {
+            viewModel.output.items.drive(tableView.rx.items(cellIdentifier: ViewConstants.CellsConstants.SearchListTableViewCell.reusableIdentifier, cellType: SearchListTableViewCell.self)) {
             row, item, cell in
                 cell.viewModel = item
             }
-            
-            // Search Bar
         
         )
     }
     
-    private func bindOutput() {
-        
+    private func bindInput() {
+        bag.insert(
+            // Search Bar
+            searchBar.rx.text
+                .orEmpty
+                .bind(to: viewModel.input.searchterms),
+            searchBar.rx.searchButtonClicked
+                .bind(to: viewModel.input.searchButtonTapped)
+        )
     }
 
 }

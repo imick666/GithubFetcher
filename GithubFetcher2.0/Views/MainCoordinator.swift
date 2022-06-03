@@ -25,5 +25,8 @@ final class MainCoordinator: Coordinator {
     }
     
     func start() {
+        let vc = SearchListViewController()
+        vc.viewModel = SearchListViewModel()
+        navigationController.pushViewController(vc, animated: true)
     }
 }

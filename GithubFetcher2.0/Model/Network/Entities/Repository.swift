@@ -16,5 +16,5 @@ struct Repository: Codable, Equatable {
     let createdAt: String
     let updatedAt: String
     let stargazersCount: Int
-    let language: String
+    let language: String?
 }

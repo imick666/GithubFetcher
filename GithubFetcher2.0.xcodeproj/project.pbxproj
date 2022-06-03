@@ -27,6 +27,7 @@
 		E04365BE284A26F800A3D8D6 /* SearchListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365BD284A26F800A3D8D6 /* SearchListViewModelTests.swift */; };
 		E04365C1284A278200A3D8D6 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365C0284A278200A3D8D6 /* SearchListViewModel.swift */; };
 		E04365C4284A2AD900A3D8D6 /* GFUserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365C3284A2AD900A3D8D6 /* GFUserError.swift */; };
+		E049104E284AAA3500C1C54F /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E049104D284AAA3500C1C54F /* ViewConstants.swift */; };
 		E0697799284A5D5A00EE6F17 /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0697797284A5D5A00EE6F17 /* SearchListViewController.swift */; };
 		E069779A284A5D5A00EE6F17 /* SearchListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0697798284A5D5A00EE6F17 /* SearchListViewController.xib */; };
 		E069779D284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E069779C284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift */; };
@@ -75,6 +76,7 @@
 		E04365BD284A26F800A3D8D6 /* SearchListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelTests.swift; sourceTree = "<group>"; };
 		E04365C0284A278200A3D8D6 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		E04365C3284A2AD900A3D8D6 /* GFUserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUserError.swift; sourceTree = "<group>"; };
+		E049104D284AAA3500C1C54F /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		E0697797284A5D5A00EE6F17 /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		E0697798284A5D5A00EE6F17 /* SearchListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListViewController.xib; sourceTree = "<group>"; };
 		E069779C284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListTableViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				E04365BF284A277200A3D8D6 /* SearchView */,
 				E01C9B6228465E5500CA5B95 /* MainCoordinator.swift */,
+				E049104D284AAA3500C1C54F /* ViewConstants.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				E04365C1284A278200A3D8D6 /* SearchListViewModel.swift in Sources */,
 				E04365C4284A2AD900A3D8D6 /* GFUserError.swift in Sources */,
 				E03CA8692846582500708AE1 /* AppDelegate.swift in Sources */,
+				E049104E284AAA3500C1C54F /* ViewConstants.swift in Sources */,
 				E01C9B6328465E5500CA5B95 /* MainCoordinator.swift in Sources */,
 				E01C9B7F284664BD00CA5B95 /* NetworkService.swift in Sources */,
 				E03CA86B2846582500708AE1 /* SceneDelegate.swift in Sources */,
