@@ -9,12 +9,21 @@
 /* Begin PBXBuildFile section */
 		9E5BE003C6C0977C793E422B /* Pods_GithubFetcher2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ECEF6EC6CDB3EC886FA652 /* Pods_GithubFetcher2_0.framework */; };
 		D7518FA61418ABA6684EC78F /* Pods_GithubFetcher2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36789ED58A697AFA1220E0F5 /* Pods_GithubFetcher2_0Tests.framework */; };
+		E00CF3862847591000191E8C /* GithubServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00CF3852847591000191E8C /* GithubServiceTests.swift */; };
+		E00CF3892847670400191E8C /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00CF3882847670400191E8C /* SearchResult.swift */; };
 		E01C9B6328465E5500CA5B95 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B6228465E5500CA5B95 /* MainCoordinator.swift */; };
+		E01C9B732846632D00CA5B95 /* RepositoriesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E01C9B722846632D00CA5B95 /* RepositoriesResponse.json */; };
+		E01C9B7F284664BD00CA5B95 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B7E284664BD00CA5B95 /* NetworkService.swift */; };
+		E01C9B81284664E300CA5B95 /* GithubTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B80284664E300CA5B95 /* GithubTarget.swift */; };
+		E01C9B8528466A0800CA5B95 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B8428466A0800CA5B95 /* Repository.swift */; };
+		E01C9B8728466BB900CA5B95 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B8628466BB900CA5B95 /* GFError.swift */; };
+		E01C9B8C2846799800CA5B95 /* MockMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B8B2846799800CA5B95 /* MockMoyaProvider.swift */; };
+		E01C9B91284679E700CA5B95 /* GithubTarget+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B90284679E700CA5B95 /* GithubTarget+SampleData.swift */; };
+		E01C9B9628467AB800CA5B95 /* SampleDataKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B9528467AB800CA5B95 /* SampleDataKeeper.swift */; };
 		E03CA8692846582500708AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA8682846582500708AE1 /* AppDelegate.swift */; };
 		E03CA86B2846582500708AE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA86A2846582500708AE1 /* SceneDelegate.swift */; };
 		E03CA8722846582900708AE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E03CA8712846582900708AE1 /* Assets.xcassets */; };
 		E03CA8752846582900708AE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E03CA8732846582900708AE1 /* LaunchScreen.storyboard */; };
-		E03CA8802846582900708AE1 /* GithubFetcher2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA87F2846582900708AE1 /* GithubFetcher2_0Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +43,17 @@
 		8FE3332F5B5F7C0A38A0E446 /* Pods-GithubFetcher2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubFetcher2.0.release.xcconfig"; path = "Target Support Files/Pods-GithubFetcher2.0/Pods-GithubFetcher2.0.release.xcconfig"; sourceTree = "<group>"; };
 		A9ECEF6EC6CDB3EC886FA652 /* Pods_GithubFetcher2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubFetcher2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1319FCA72A33CD349AA2184 /* Pods-GithubFetcher2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubFetcher2.0.debug.xcconfig"; path = "Target Support Files/Pods-GithubFetcher2.0/Pods-GithubFetcher2.0.debug.xcconfig"; sourceTree = "<group>"; };
+		E00CF3852847591000191E8C /* GithubServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubServiceTests.swift; sourceTree = "<group>"; };
+		E00CF3882847670400191E8C /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		E01C9B6228465E5500CA5B95 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		E01C9B722846632D00CA5B95 /* RepositoriesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RepositoriesResponse.json; sourceTree = "<group>"; };
+		E01C9B7E284664BD00CA5B95 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E01C9B80284664E300CA5B95 /* GithubTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTarget.swift; sourceTree = "<group>"; };
+		E01C9B8428466A0800CA5B95 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		E01C9B8628466BB900CA5B95 /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
+		E01C9B8B2846799800CA5B95 /* MockMoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoyaProvider.swift; sourceTree = "<group>"; };
+		E01C9B90284679E700CA5B95 /* GithubTarget+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubTarget+SampleData.swift"; sourceTree = "<group>"; };
+		E01C9B9528467AB800CA5B95 /* SampleDataKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataKeeper.swift; sourceTree = "<group>"; };
 		E03CA8652846582500708AE1 /* GithubFetcher2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubFetcher2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E03CA8682846582500708AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E03CA86A2846582500708AE1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +61,6 @@
 		E03CA8742846582900708AE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E03CA8762846582900708AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E03CA87B2846582900708AE1 /* GithubFetcher2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubFetcher2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E03CA87F2846582900708AE1 /* GithubFetcher2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFetcher2_0Tests.swift; sourceTree = "<group>"; };
 		E03CA8982846585B00708AE1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E03CA89A2846586F00708AE1 /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E03CA89C28465C7100708AE1 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -91,6 +109,8 @@
 		E01C9B5F28465DF400CA5B95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E01C9B762846638E00CA5B95 /* Network */,
+				E01C9B8628466BB900CA5B95 /* GFError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +133,146 @@
 				E03CA8762846582900708AE1 /* Info.plist */,
 			);
 			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		E01C9B69284661F700CA5B95 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B6A2846620400CA5B95 /* Model */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		E01C9B6A2846620400CA5B95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E00CF3852847591000191E8C /* GithubServiceTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E01C9B6B2846621800CA5B95 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B6C2846622000CA5B95 /* Model */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		E01C9B6C2846622000CA5B95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B8A2846797E00CA5B95 /* Network */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E01C9B6D2846622800CA5B95 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B722846632D00CA5B95 /* RepositoriesResponse.json */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		E01C9B762846638E00CA5B95 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B832846689000CA5B95 /* Entities */,
+				E01C9B822846656000CA5B95 /* MoyaTarget */,
+				E01C9B7E284664BD00CA5B95 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E01C9B822846656000CA5B95 /* MoyaTarget */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B80284664E300CA5B95 /* GithubTarget.swift */,
+			);
+			path = MoyaTarget;
+			sourceTree = "<group>";
+		};
+		E01C9B832846689000CA5B95 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B8428466A0800CA5B95 /* Repository.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		E01C9B882846796100CA5B95 /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B9228467A9900CA5B95 /* Model */,
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
+		E01C9B892846796E00CA5B95 /* HelperExtension */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B8D284679C400CA5B95 /* Model */,
+			);
+			path = HelperExtension;
+			sourceTree = "<group>";
+		};
+		E01C9B8A2846797E00CA5B95 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B6D2846622800CA5B95 /* Entities */,
+				E01C9B8B2846799800CA5B95 /* MockMoyaProvider.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E01C9B8D284679C400CA5B95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B8E284679C900CA5B95 /* Netowork */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E01C9B8E284679C900CA5B95 /* Netowork */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B8F284679D400CA5B95 /* MoyaTarget */,
+			);
+			path = Netowork;
+			sourceTree = "<group>";
+		};
+		E01C9B8F284679D400CA5B95 /* MoyaTarget */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B90284679E700CA5B95 /* GithubTarget+SampleData.swift */,
+			);
+			path = MoyaTarget;
+			sourceTree = "<group>";
+		};
+		E01C9B9228467A9900CA5B95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B9328467AA000CA5B95 /* Network */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E01C9B9328467AA000CA5B95 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B9428467AAD00CA5B95 /* Entities */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E01C9B9428467AAD00CA5B95 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B9528467AB800CA5B95 /* SampleDataKeeper.swift */,
+				E00CF3882847670400191E8C /* SearchResult.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		E03CA85C2846582500708AE1 = {
@@ -151,7 +311,10 @@
 		E03CA87E2846582900708AE1 /* GithubFetcher2.0Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E03CA87F2846582900708AE1 /* GithubFetcher2_0Tests.swift */,
+				E01C9B892846796E00CA5B95 /* HelperExtension */,
+				E01C9B882846796100CA5B95 /* HelperClasses */,
+				E01C9B6B2846621800CA5B95 /* Mocks */,
+				E01C9B69284661F700CA5B95 /* Cases */,
 			);
 			path = GithubFetcher2.0Tests;
 			sourceTree = "<group>";
@@ -213,6 +376,7 @@
 					};
 					E03CA87A2846582900708AE1 = {
 						CreatedOnToolsVersion = 13.4;
+						LastSwiftMigration = 1340;
 						TestTargetID = E03CA8642846582500708AE1;
 					};
 				};
@@ -250,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01C9B732846632D00CA5B95 /* RepositoriesResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,9 +506,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01C9B81284664E300CA5B95 /* GithubTarget.swift in Sources */,
+				E01C9B8728466BB900CA5B95 /* GFError.swift in Sources */,
 				E03CA8692846582500708AE1 /* AppDelegate.swift in Sources */,
 				E01C9B6328465E5500CA5B95 /* MainCoordinator.swift in Sources */,
+				E01C9B7F284664BD00CA5B95 /* NetworkService.swift in Sources */,
 				E03CA86B2846582500708AE1 /* SceneDelegate.swift in Sources */,
+				E01C9B8528466A0800CA5B95 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +520,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E03CA8802846582900708AE1 /* GithubFetcher2_0Tests.swift in Sources */,
+				E01C9B91284679E700CA5B95 /* GithubTarget+SampleData.swift in Sources */,
+				E01C9B9628467AB800CA5B95 /* SampleDataKeeper.swift in Sources */,
+				E00CF3892847670400191E8C /* SearchResult.swift in Sources */,
+				E00CF3862847591000191E8C /* GithubServiceTests.swift in Sources */,
+				E01C9B8C2846799800CA5B95 /* MockMoyaProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,15 +730,24 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V6M3YC3LQG;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mickaelruzel.GithubFetcher2-0Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GithubFetcher2.0.app/GithubFetcher2.0";
@@ -578,15 +760,23 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V6M3YC3LQG;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mickaelruzel.GithubFetcher2-0Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GithubFetcher2.0.app/GithubFetcher2.0";
