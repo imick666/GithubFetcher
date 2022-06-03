@@ -16,7 +16,7 @@
 		E01C9B7F284664BD00CA5B95 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B7E284664BD00CA5B95 /* NetworkService.swift */; };
 		E01C9B81284664E300CA5B95 /* GithubTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B80284664E300CA5B95 /* GithubTarget.swift */; };
 		E01C9B8528466A0800CA5B95 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B8428466A0800CA5B95 /* Repository.swift */; };
-		E01C9B8728466BB900CA5B95 /* GFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B8628466BB900CA5B95 /* GFError.swift */; };
+		E01C9B8728466BB900CA5B95 /* GFNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B8628466BB900CA5B95 /* GFNetworkError.swift */; };
 		E01C9B8C2846799800CA5B95 /* MockMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B8B2846799800CA5B95 /* MockMoyaProvider.swift */; };
 		E01C9B91284679E700CA5B95 /* GithubTarget+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B90284679E700CA5B95 /* GithubTarget+SampleData.swift */; };
 		E01C9B9628467AB800CA5B95 /* SampleDataKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B9528467AB800CA5B95 /* SampleDataKeeper.swift */; };
@@ -24,6 +24,9 @@
 		E03CA86B2846582500708AE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA86A2846582500708AE1 /* SceneDelegate.swift */; };
 		E03CA8722846582900708AE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E03CA8712846582900708AE1 /* Assets.xcassets */; };
 		E03CA8752846582900708AE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E03CA8732846582900708AE1 /* LaunchScreen.storyboard */; };
+		E04365BE284A26F800A3D8D6 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365BD284A26F800A3D8D6 /* SearchViewModelTests.swift */; };
+		E04365C1284A278200A3D8D6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365C0284A278200A3D8D6 /* SearchViewModel.swift */; };
+		E04365C4284A2AD900A3D8D6 /* GFUserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365C3284A2AD900A3D8D6 /* GFUserError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +53,7 @@
 		E01C9B7E284664BD00CA5B95 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E01C9B80284664E300CA5B95 /* GithubTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTarget.swift; sourceTree = "<group>"; };
 		E01C9B8428466A0800CA5B95 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		E01C9B8628466BB900CA5B95 /* GFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFError.swift; sourceTree = "<group>"; };
+		E01C9B8628466BB900CA5B95 /* GFNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFNetworkError.swift; sourceTree = "<group>"; };
 		E01C9B8B2846799800CA5B95 /* MockMoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoyaProvider.swift; sourceTree = "<group>"; };
 		E01C9B90284679E700CA5B95 /* GithubTarget+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubTarget+SampleData.swift"; sourceTree = "<group>"; };
 		E01C9B9528467AB800CA5B95 /* SampleDataKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataKeeper.swift; sourceTree = "<group>"; };
@@ -64,6 +67,9 @@
 		E03CA8982846585B00708AE1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E03CA89A2846586F00708AE1 /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E03CA89C28465C7100708AE1 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E04365BD284A26F800A3D8D6 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		E04365C0284A278200A3D8D6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		E04365C3284A2AD900A3D8D6 /* GFUserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUserError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +115,8 @@
 		E01C9B5F28465DF400CA5B95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E04365C2284A2ABF00A3D8D6 /* Errors */,
 				E01C9B762846638E00CA5B95 /* Network */,
-				E01C9B8628466BB900CA5B95 /* GFError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +124,7 @@
 		E01C9B6028465DF900CA5B95 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E04365BF284A277200A3D8D6 /* SearchView */,
 				E01C9B6228465E5500CA5B95 /* MainCoordinator.swift */,
 			);
 			path = Views;
@@ -138,6 +145,7 @@
 		E01C9B69284661F700CA5B95 /* Cases */ = {
 			isa = PBXGroup;
 			children = (
+				E04365BB284A26D800A3D8D6 /* Views */,
 				E01C9B6A2846620400CA5B95 /* Model */,
 			);
 			path = Cases;
@@ -317,6 +325,39 @@
 				E01C9B69284661F700CA5B95 /* Cases */,
 			);
 			path = GithubFetcher2.0Tests;
+			sourceTree = "<group>";
+		};
+		E04365BB284A26D800A3D8D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E04365BC284A26E000A3D8D6 /* SearchView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E04365BC284A26E000A3D8D6 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				E04365BD284A26F800A3D8D6 /* SearchViewModelTests.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		E04365BF284A277200A3D8D6 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				E04365C0284A278200A3D8D6 /* SearchViewModel.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		E04365C2284A2ABF00A3D8D6 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9B8628466BB900CA5B95 /* GFNetworkError.swift */,
+				E04365C3284A2AD900A3D8D6 /* GFUserError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,7 +548,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E01C9B81284664E300CA5B95 /* GithubTarget.swift in Sources */,
-				E01C9B8728466BB900CA5B95 /* GFError.swift in Sources */,
+				E01C9B8728466BB900CA5B95 /* GFNetworkError.swift in Sources */,
+				E04365C1284A278200A3D8D6 /* SearchViewModel.swift in Sources */,
+				E04365C4284A2AD900A3D8D6 /* GFUserError.swift in Sources */,
 				E03CA8692846582500708AE1 /* AppDelegate.swift in Sources */,
 				E01C9B6328465E5500CA5B95 /* MainCoordinator.swift in Sources */,
 				E01C9B7F284664BD00CA5B95 /* NetworkService.swift in Sources */,
@@ -522,6 +565,7 @@
 			files = (
 				E01C9B91284679E700CA5B95 /* GithubTarget+SampleData.swift in Sources */,
 				E01C9B9628467AB800CA5B95 /* SampleDataKeeper.swift in Sources */,
+				E04365BE284A26F800A3D8D6 /* SearchViewModelTests.swift in Sources */,
 				E00CF3892847670400191E8C /* SearchResult.swift in Sources */,
 				E00CF3862847591000191E8C /* GithubServiceTests.swift in Sources */,
 				E01C9B8C2846799800CA5B95 /* MockMoyaProvider.swift in Sources */,
