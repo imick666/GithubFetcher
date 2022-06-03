@@ -57,6 +57,27 @@ class SearchListViewModelTests: XCTestCase {
         return (items, error)
     }
     
+    private func createObserverForDynamicViews() -> (activityIndicator: TestableObserver<Bool>, tableView: TestableObserver<Bool>, emptySearchLabel: TestableObserver<Bool>) {
+        
+        let activityIndicator = scheduler.createObserver(Bool.self)
+        sut.output.showActivityIndicator
+            .drive(activityIndicator)
+            .disposed(by: bag)
+        
+        let tableView = scheduler.createObserver(Bool.self)
+        sut.output.showTableView
+            .drive(tableView)
+            .disposed(by: bag)
+        
+        let emptySearchLabel = scheduler.createObserver(Bool.self)
+        sut.output.showEmptySearchLabel
+            .drive(emptySearchLabel)
+            .disposed(by: bag)
+        
+        return (activityIndicator, tableView, emptySearchLabel)
+        
+    }
+    
     // MARK: - Tests
     
     func testSearchViewModel_onFetchRepositoriesWithEmptySearchTerms_InvalidEntryError() {
@@ -187,5 +208,58 @@ class SearchListViewModelTests: XCTestCase {
         XCTAssertEqual(observer.errors.events.count, 0)
     }
     
+    func testSearchViewModel_onLaunch_activityIndicatorAndTableViewAreHideEmptySearchLabelIsShow() {
+        createSut(dataResponse: .good, httpReponse: .good)
+        
+        let observers = createObserverForDynamicViews()
+        
+        scheduler.start()
+        
+        XCTAssertEqual(observers.activityIndicator.events, [
+            .next(0, false)
+        ])
+        XCTAssertEqual(observers.emptySearchLabel.events, [
+            .next(0, true)
+        ])
+        XCTAssertEqual(observers.tableView.events, [
+            .next(0, false)
+        ])
+    }
+    
+    func testSearchViewModel_onfetch_activityIndicatorIsShowTableViewAndEmptySearchLabelAreHide() {
+        createSut(dataResponse: .good, httpReponse: .good)
+        
+        let observers = createObserverForDynamicViews()
+        
+        scheduler.createColdObservable([
+            .next(1, "Bonjour")
+        ])
+        .bind(to: sut.input.searchterms)
+        .disposed(by: bag)
+        
+        scheduler.createColdObservable([
+            .next(1, ())
+        ])
+        .bind(to: sut.input.searchButtonTapped)
+        .disposed(by: bag)
+        
+        scheduler.start()
+        
+        XCTAssertEqual(observers.activityIndicator.events, [
+            .next(0, false),
+            .next(1, true),
+            .next(1, false)
+        ])
+        XCTAssertEqual(observers.emptySearchLabel.events, [
+            .next(0, true),
+            .next(1, false),
+            .next(1, false)
+        ])
+        XCTAssertEqual(observers.tableView.events, [
+            .next(0, false),
+            .next(1, false),
+            .next(1, true)
+        ])
+    }
 
 }

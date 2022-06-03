@@ -15,6 +15,8 @@ class SearchListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var emptySearchLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var viewModel: SearchListViewModel!
     
@@ -42,7 +44,21 @@ class SearchListViewController: UIViewController {
             viewModel.output.items.drive(tableView.rx.items(cellIdentifier: ViewConstants.CellsConstants.SearchListTableViewCell.reusableIdentifier, cellType: SearchListTableViewCell.self)) {
             row, item, cell in
                 cell.viewModel = item
-            }
+            },
+            viewModel.output.showTableView
+                .map(!)
+                .drive(tableView.rx.isHidden),
+            
+            // EmptySearchlabel
+            viewModel.output.showEmptySearchLabel
+                .map(!)
+                .drive(emptySearchLabel.rx.isHidden),
+            
+            // ActiviIndicator
+            viewModel.output.showActivityIndicator
+                .map(!)
+                .drive(activityIndicator.rx.isHidden,
+                       activityIndicator.rx.isAnimating)
         
         )
     }
