@@ -10,7 +10,7 @@ import Foundation
 struct Repository: Codable, Equatable {
     let id: Int
     let fullName: String
-    let description: String
+    let description: String?
     let branchesUrl: String
     let contributorsUrl: String
     let createdAt: String
