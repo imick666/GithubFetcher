@@ -24,9 +24,14 @@
 		E03CA86B2846582500708AE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA86A2846582500708AE1 /* SceneDelegate.swift */; };
 		E03CA8722846582900708AE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E03CA8712846582900708AE1 /* Assets.xcassets */; };
 		E03CA8752846582900708AE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E03CA8732846582900708AE1 /* LaunchScreen.storyboard */; };
-		E04365BE284A26F800A3D8D6 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365BD284A26F800A3D8D6 /* SearchViewModelTests.swift */; };
-		E04365C1284A278200A3D8D6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365C0284A278200A3D8D6 /* SearchViewModel.swift */; };
+		E04365BE284A26F800A3D8D6 /* SearchListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365BD284A26F800A3D8D6 /* SearchListViewModelTests.swift */; };
+		E04365C1284A278200A3D8D6 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365C0284A278200A3D8D6 /* SearchListViewModel.swift */; };
 		E04365C4284A2AD900A3D8D6 /* GFUserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04365C3284A2AD900A3D8D6 /* GFUserError.swift */; };
+		E0697799284A5D5A00EE6F17 /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0697797284A5D5A00EE6F17 /* SearchListViewController.swift */; };
+		E069779A284A5D5A00EE6F17 /* SearchListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0697798284A5D5A00EE6F17 /* SearchListViewController.xib */; };
+		E069779D284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E069779C284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift */; };
+		E06977A0284A5E3500EE6F17 /* SearchListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E069779E284A5E3500EE6F17 /* SearchListTableViewCell.swift */; };
+		E06977A1284A5E3500EE6F17 /* SearchListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E069779F284A5E3500EE6F17 /* SearchListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,9 +72,14 @@
 		E03CA8982846585B00708AE1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E03CA89A2846586F00708AE1 /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E03CA89C28465C7100708AE1 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E04365BD284A26F800A3D8D6 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
-		E04365C0284A278200A3D8D6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		E04365BD284A26F800A3D8D6 /* SearchListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelTests.swift; sourceTree = "<group>"; };
+		E04365C0284A278200A3D8D6 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		E04365C3284A2AD900A3D8D6 /* GFUserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUserError.swift; sourceTree = "<group>"; };
+		E0697797284A5D5A00EE6F17 /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
+		E0697798284A5D5A00EE6F17 /* SearchListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListViewController.xib; sourceTree = "<group>"; };
+		E069779C284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		E069779E284A5E3500EE6F17 /* SearchListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListTableViewCell.swift; sourceTree = "<group>"; };
+		E069779F284A5E3500EE6F17 /* SearchListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,7 +348,7 @@
 		E04365BC284A26E000A3D8D6 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
-				E04365BD284A26F800A3D8D6 /* SearchViewModelTests.swift */,
+				E04365BD284A26F800A3D8D6 /* SearchListViewModelTests.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -346,7 +356,8 @@
 		E04365BF284A277200A3D8D6 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
-				E04365C0284A278200A3D8D6 /* SearchViewModel.swift */,
+				E069779B284A5DFF00EE6F17 /* SearchListCell */,
+				E0697795284A5D2400EE6F17 /* SearchList */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -358,6 +369,26 @@
 				E04365C3284A2AD900A3D8D6 /* GFUserError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		E0697795284A5D2400EE6F17 /* SearchList */ = {
+			isa = PBXGroup;
+			children = (
+				E04365C0284A278200A3D8D6 /* SearchListViewModel.swift */,
+				E0697797284A5D5A00EE6F17 /* SearchListViewController.swift */,
+				E0697798284A5D5A00EE6F17 /* SearchListViewController.xib */,
+			);
+			path = SearchList;
+			sourceTree = "<group>";
+		};
+		E069779B284A5DFF00EE6F17 /* SearchListCell */ = {
+			isa = PBXGroup;
+			children = (
+				E069779C284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift */,
+				E069779E284A5E3500EE6F17 /* SearchListTableViewCell.swift */,
+				E069779F284A5E3500EE6F17 /* SearchListTableViewCell.xib */,
+			);
+			path = SearchListCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,6 +477,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E069779A284A5D5A00EE6F17 /* SearchListViewController.xib in Resources */,
+				E06977A1284A5E3500EE6F17 /* SearchListTableViewCell.xib in Resources */,
 				E03CA8752846582900708AE1 /* LaunchScreen.storyboard in Resources */,
 				E03CA8722846582900708AE1 /* Assets.xcassets in Resources */,
 			);
@@ -549,12 +582,15 @@
 			files = (
 				E01C9B81284664E300CA5B95 /* GithubTarget.swift in Sources */,
 				E01C9B8728466BB900CA5B95 /* GFNetworkError.swift in Sources */,
-				E04365C1284A278200A3D8D6 /* SearchViewModel.swift in Sources */,
+				E0697799284A5D5A00EE6F17 /* SearchListViewController.swift in Sources */,
+				E04365C1284A278200A3D8D6 /* SearchListViewModel.swift in Sources */,
 				E04365C4284A2AD900A3D8D6 /* GFUserError.swift in Sources */,
 				E03CA8692846582500708AE1 /* AppDelegate.swift in Sources */,
 				E01C9B6328465E5500CA5B95 /* MainCoordinator.swift in Sources */,
 				E01C9B7F284664BD00CA5B95 /* NetworkService.swift in Sources */,
 				E03CA86B2846582500708AE1 /* SceneDelegate.swift in Sources */,
+				E06977A0284A5E3500EE6F17 /* SearchListTableViewCell.swift in Sources */,
+				E069779D284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift in Sources */,
 				E01C9B8528466A0800CA5B95 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,7 +601,7 @@
 			files = (
 				E01C9B91284679E700CA5B95 /* GithubTarget+SampleData.swift in Sources */,
 				E01C9B9628467AB800CA5B95 /* SampleDataKeeper.swift in Sources */,
-				E04365BE284A26F800A3D8D6 /* SearchViewModelTests.swift in Sources */,
+				E04365BE284A26F800A3D8D6 /* SearchListViewModelTests.swift in Sources */,
 				E00CF3892847670400191E8C /* SearchResult.swift in Sources */,
 				E00CF3862847591000191E8C /* GithubServiceTests.swift in Sources */,
 				E01C9B8C2846799800CA5B95 /* MockMoyaProvider.swift in Sources */,

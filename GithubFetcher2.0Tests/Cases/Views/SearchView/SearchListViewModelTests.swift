@@ -11,11 +11,11 @@ import RxSwift
 import RxCocoa
 @testable import GithubFetcher2_0
 
-class SearchViewModelTests: XCTestCase {
+class SearchListViewModelTests: XCTestCase {
     
     // MARK: - Properties
     
-    var sut: SearchViewModel!
+    var sut: SearchListViewModel!
     var bag: DisposeBag!
     var scheduler: TestScheduler!
     
@@ -39,11 +39,11 @@ class SearchViewModelTests: XCTestCase {
     private func createSut(dataResponse: MockMoyaProvider.DataResponse, httpReponse: MockMoyaProvider.HTTPResponse) {
         let mockProvider = MockMoyaProvider(dataResponse: dataResponse, httpResponse: httpReponse)
         let networkService = GithubService(provider: mockProvider.immediateResponse())
-        sut = SearchViewModel(networkService: networkService)
+        sut = SearchListViewModel(networkService: networkService)
     }
     
-    private func createObserverForItemsAndErrors() -> (items: TestableObserver<[Repository]>, errors: TestableObserver<String?>) {
-        let items = scheduler.createObserver([Repository].self)
+    private func createObserverForItemsAndErrors() -> (items: TestableObserver<[SearchListTableViewCellViewModel]>, errors: TestableObserver<String?>) {
+        let items = scheduler.createObserver([SearchListTableViewCellViewModel].self)
         let error = scheduler.createObserver(String?.self)
         
         sut.output.items
@@ -176,8 +176,13 @@ class SearchViewModelTests: XCTestCase {
         
         scheduler.start()
         
+        var expectedItems: [SearchListTableViewCellViewModel] {
+            let repositories: [Repository] = SampleDataKeeper.repositories.asObject()
+            return repositories.map { SearchListTableViewCellViewModel(repository: $0) }
+        }
+        
         XCTAssertEqual(observer.items.events,[
-            .next(0, SampleDataKeeper.repositories.asObject())
+            .next(0, expectedItems)
         ])
         XCTAssertEqual(observer.errors.events.count, 0)
     }

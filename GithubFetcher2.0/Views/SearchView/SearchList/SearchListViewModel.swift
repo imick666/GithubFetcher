@@ -18,7 +18,7 @@ protocol ViewModel {
     
 }
 
-final class SearchViewModel: ViewModel {
+final class SearchListViewModel: ViewModel {
     
     // MARK: - Properties
     
@@ -30,7 +30,7 @@ final class SearchViewModel: ViewModel {
     private var searchButtonTapped = PublishSubject<()>()
     
     // Output
-    private var items = PublishSubject<[Repository]>()
+    private var items = PublishSubject<[SearchListTableViewCellViewModel]>()
     private var displayedError = PublishSubject<String?>()
     
     // Dependencies
@@ -51,6 +51,7 @@ final class SearchViewModel: ViewModel {
         searchButtonTapped
             .flatMap { self.validateSearchTerms() }
             .flatMap(networkService.fetchRepositories(searchTerms:))
+            .map { $0.map { SearchListTableViewCellViewModel(repository: $0) } }
             .subscribe(onNext: { [weak self] repositories in
                 self?.items.onNext(repositories)
             }, onError: { [weak self] error in
@@ -76,14 +77,14 @@ final class SearchViewModel: ViewModel {
     
 }
 
-extension SearchViewModel {
+extension SearchListViewModel {
     struct Input {
         var searchterms: AnyObserver<String>
         var searchButtonTapped: AnyObserver<()>
     }
     
     struct Output {
-        var items: Driver<[Repository]>
+        var items: Driver<[SearchListTableViewCellViewModel]>
         var displayedError: Driver<String?>
     }
 }
