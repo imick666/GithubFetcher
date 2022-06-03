@@ -39,7 +39,7 @@ final class SearchListViewModel: ViewModel {
     
     // MARK: - init
     
-    init(networkService: GithubService) {
+    init(networkService: GithubService = GithubService()) {
         self.networkService = networkService
         
         input = Input(searchterms: searchTerms.asObserver(),
@@ -49,19 +49,27 @@ final class SearchListViewModel: ViewModel {
                         displayedError: displayedError.asDriver(onErrorJustReturn: ""))
         
         searchButtonTapped
-            .flatMap { self.validateSearchTerms() }
-            .flatMap(networkService.fetchRepositories(searchTerms:))
-            .map { $0.map { SearchListTableViewCellViewModel(repository: $0) } }
-            .subscribe(onNext: { [weak self] repositories in
-                self?.items.onNext(repositories)
-            }, onError: { [weak self] error in
-                self?.displayedError.onNext(error.localizedDescription)
-            })
+            .subscribe(onNext: { _ in self.fetchReporistories() })
             .disposed(by: bag)
 
     }
     
     // MARK: - Methodes
+    
+    private func fetchReporistories() {
+        validateSearchTerms()
+            .flatMap(networkService.fetchRepositories(searchTerms:))
+            .map { $0.map { SearchListTableViewCellViewModel(repository: $0) } }
+            .subscribe(onNext: { [weak self] repositories in
+                self?.items.onNext(repositories)
+                print(repositories)
+            }, onError: { [weak self] error in
+                self?.displayedError.onNext(error.localizedDescription)
+                print(error)
+            })
+            .disposed(by: bag)
+        
+    }
     
     private func validateSearchTerms() -> Observable<String> {
         return searchTerms
