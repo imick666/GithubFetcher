@@ -26,7 +26,9 @@ final class MainCoordinator: Coordinator {
     
     func start() {
         let vc = SearchListViewController()
+        vc.title = "Github Fetcher"
         vc.viewModel = SearchListViewModel()
+        navigationController.navigationBar.prefersLargeTitles = true
         navigationController.pushViewController(vc, animated: true)
     }
 }

@@ -28,6 +28,7 @@ final class SearchListViewModel: ViewModel {
     // Input
     private var searchTerms = BehaviorSubject<String>(value: "")
     private var searchButtonTapped = PublishSubject<()>()
+    private var cancelButtonTapped = PublishSubject<()>()
     private var begginEdditingSearchTerms = PublishSubject<()>()
     private var endEdditingSearchTerms = PublishSubject<()>()
     
@@ -48,6 +49,7 @@ final class SearchListViewModel: ViewModel {
         
         input = Input(searchterms: searchTerms.asObserver(),
                       searchButtonTapped: searchButtonTapped.asObserver(),
+                      cancelButtonTapped: cancelButtonTapped.asObserver(),
                       begginEdditingSearchTertms: begginEdditingSearchTerms.asObserver(),
                       endingEdditingSearchTerms: endEdditingSearchTerms.asObserver())
         
@@ -56,7 +58,8 @@ final class SearchListViewModel: ViewModel {
                         showEmptySearchLabel: showEmptySearchLabel(),
                         showTableView: showTableView(),
                         showActivityIndicator: isSearching.asDriver(onErrorJustReturn: false),
-                        isEdditingSearchTerms: isEditingSearchTerms.asDriver(onErrorJustReturn: false))
+                        isEdditingSearchTerms: isEditingSearchTerms.asDriver(onErrorJustReturn: false),
+                        hideKeyboard: hideKeyboard())
         
         searchButtonTapped
             .subscribe(onNext: { _ in self.fetchReporistories() })
@@ -72,6 +75,12 @@ final class SearchListViewModel: ViewModel {
             .bind(to: isEditingSearchTerms)
             .disposed(by: bag)
         
+        searchTerms
+            .filter { $0.isEmpty }
+            .subscribe(onNext: { _ in
+                self.items.onNext([])
+            })
+            .disposed(by: bag)
     }
     
     // MARK: - Methodes
@@ -86,6 +95,12 @@ final class SearchListViewModel: ViewModel {
         Observable.combineLatest(isSearching, items)
             .map { !$0.0 && $0.1.isEmpty}
             .asDriver(onErrorJustReturn: true)
+    }
+    
+    private func hideKeyboard() -> Driver<Void> {
+        Observable.of(searchButtonTapped, cancelButtonTapped)
+            .merge()
+            .asDriver(onErrorJustReturn: ())
     }
     
     private func fetchReporistories() {
@@ -124,8 +139,10 @@ extension SearchListViewModel {
     struct Input {
         var searchterms: AnyObserver<String>
         var searchButtonTapped: AnyObserver<()>
+        var cancelButtonTapped: AnyObserver<()>
         var begginEdditingSearchTertms: AnyObserver<()>
         var endingEdditingSearchTerms: AnyObserver<()>
+        
     }
     
     struct Output {
@@ -135,5 +152,6 @@ extension SearchListViewModel {
         var showTableView: Driver<Bool>
         var showActivityIndicator: Driver<Bool>
         var isEdditingSearchTerms: Driver<Bool>
+        var hideKeyboard: Driver<Void>
     }
 }

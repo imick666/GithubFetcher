@@ -29,7 +29,8 @@ class SearchListViewController: UIViewController {
         
         let nib = UINib(nibName: ViewConstants.CellsConstants.SearchListTableViewCell.nibName, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: ViewConstants.CellsConstants.SearchListTableViewCell.reusableIdentifier)
-//        tableView.tableFooterView = UIView()
+        tableView.keyboardDismissMode = .onDrag
+        tableView.tableFooterView = UIView()
         
         binOutput()
         bindInput()
@@ -69,7 +70,10 @@ class SearchListViewController: UIViewController {
             viewModel.output.isEdditingSearchTerms
                 .drive(onNext: { [weak self] showCancelButton in
                     self?.searchBar.setShowsCancelButton(showCancelButton, animated: true)
-                })
+                }),
+            
+            viewModel.output.hideKeyboard
+                .drive(onNext: { self.searchBar.resignFirstResponder() })
         )
     }
     
@@ -81,14 +85,13 @@ class SearchListViewController: UIViewController {
                 .bind(to: viewModel.input.searchterms),
             searchBar.rx.searchButtonClicked
                 .bind(to: viewModel.input.searchButtonTapped),
-            searchBar.rx.searchButtonClicked
-                .subscribe(onNext: { self.searchBar.resignFirstResponder() }),
+            searchBar.rx.cancelButtonClicked
+                .bind(to: viewModel.input.cancelButtonTapped),
             searchBar.rx.textDidBeginEditing
                 .bind(to: viewModel.input.begginEdditingSearchTertms),
             searchBar.rx.textDidEndEditing
-                .bind(to: viewModel.input.endingEdditingSearchTerms),
-            searchBar.rx.cancelButtonClicked
-                .subscribe(onNext: { self.searchBar.resignFirstResponder() })
+                .bind(to: viewModel.input.endingEdditingSearchTerms)
+            
         )
     }
     
@@ -99,7 +102,4 @@ class SearchListViewController: UIViewController {
         
         navigationController?.present(alertView, animated: true, completion: nil)
     }
-    
-    
-
 }
