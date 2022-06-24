@@ -29,7 +29,7 @@ class SearchListViewController: UIViewController {
         
         let nib = UINib(nibName: ViewConstants.CellsConstants.SearchListTableViewCell.nibName, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: ViewConstants.CellsConstants.SearchListTableViewCell.reusableIdentifier)
-        tableView.tableFooterView = UIView()
+//        tableView.tableFooterView = UIView()
         
         binOutput()
         bindInput()
@@ -39,7 +39,6 @@ class SearchListViewController: UIViewController {
     
     private func binOutput() {
         bag.insert(
-            
             // Table View
             viewModel.output.items.drive(tableView.rx.items(cellIdentifier: ViewConstants.CellsConstants.SearchListTableViewCell.reusableIdentifier, cellType: SearchListTableViewCell.self)) {
             row, item, cell in
@@ -58,8 +57,19 @@ class SearchListViewController: UIViewController {
             viewModel.output.showActivityIndicator
                 .map(!)
                 .drive(activityIndicator.rx.isHidden,
-                       activityIndicator.rx.isAnimating)
-        
+                       activityIndicator.rx.isAnimating),
+            // AlertView
+            viewModel.output.displayedError
+                .filter { $0 != nil }
+                .drive(onNext: { [weak self] message in
+                    self?.showAlertController(with: message!)
+                }),
+            
+            // SearchBar
+            viewModel.output.isEdditingSearchTerms
+                .drive(onNext: { [weak self] showCancelButton in
+                    self?.searchBar.setShowsCancelButton(showCancelButton, animated: true)
+                })
         )
     }
     
@@ -70,8 +80,26 @@ class SearchListViewController: UIViewController {
                 .orEmpty
                 .bind(to: viewModel.input.searchterms),
             searchBar.rx.searchButtonClicked
-                .bind(to: viewModel.input.searchButtonTapped)
+                .bind(to: viewModel.input.searchButtonTapped),
+            searchBar.rx.searchButtonClicked
+                .subscribe(onNext: { self.searchBar.resignFirstResponder() }),
+            searchBar.rx.textDidBeginEditing
+                .bind(to: viewModel.input.begginEdditingSearchTertms),
+            searchBar.rx.textDidEndEditing
+                .bind(to: viewModel.input.endingEdditingSearchTerms),
+            searchBar.rx.cancelButtonClicked
+                .subscribe(onNext: { self.searchBar.resignFirstResponder() })
         )
     }
+    
+    private func showAlertController(with message: String) {
+        let alertView = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel)
+        alertView.addAction(cancelAction)
+        
+        navigationController?.present(alertView, animated: true, completion: nil)
+    }
+    
+    
 
 }

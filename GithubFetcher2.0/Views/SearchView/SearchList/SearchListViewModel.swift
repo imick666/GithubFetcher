@@ -28,13 +28,14 @@ final class SearchListViewModel: ViewModel {
     // Input
     private var searchTerms = BehaviorSubject<String>(value: "")
     private var searchButtonTapped = PublishSubject<()>()
+    private var begginEdditingSearchTerms = PublishSubject<()>()
+    private var endEdditingSearchTerms = PublishSubject<()>()
     
     // Output
-    private var items = PublishSubject<[SearchListTableViewCellViewModel]>()
+    private var items = BehaviorSubject<[SearchListTableViewCellViewModel]>(value: [])
     private var displayedError = PublishSubject<String?>()
-    private var showEmptySearchLabel = BehaviorSubject<Bool>(value: true)
-    private var showTableView = BehaviorSubject<Bool>(value: false)
-    private var showActivityIndicator = BehaviorSubject<Bool>(value: false)
+    private var isSearching = BehaviorSubject<Bool>(value: false)
+    private var isEditingSearchTerms = BehaviorSubject<Bool>(value: false)
     
     // Dependencies
     private var networkService: GithubService
@@ -46,55 +47,61 @@ final class SearchListViewModel: ViewModel {
         self.networkService = networkService
         
         input = Input(searchterms: searchTerms.asObserver(),
-                      searchButtonTapped: searchButtonTapped.asObserver())
+                      searchButtonTapped: searchButtonTapped.asObserver(),
+                      begginEdditingSearchTertms: begginEdditingSearchTerms.asObserver(),
+                      endingEdditingSearchTerms: endEdditingSearchTerms.asObserver())
         
-        output = Output(items: items.asDriver(onErrorJustReturn: []),
+        output = Output(items: items.skip(1).asDriver(onErrorJustReturn: []),
                         displayedError: displayedError.asDriver(onErrorJustReturn: ""),
-                        showEmptySearchLabel: showEmptySearchLabel.asDriver(onErrorJustReturn: true),
-                        showTableView: showTableView.asDriver(onErrorJustReturn: false),
-                        showActivityIndicator: showActivityIndicator.asDriver(onErrorJustReturn: false) )
+                        showEmptySearchLabel: showEmptySearchLabel(),
+                        showTableView: showTableView(),
+                        showActivityIndicator: isSearching.asDriver(onErrorJustReturn: false),
+                        isEdditingSearchTerms: isEditingSearchTerms.asDriver(onErrorJustReturn: false))
         
         searchButtonTapped
             .subscribe(onNext: { _ in self.fetchReporistories() })
             .disposed(by: bag)
         
-        updateEmptySearchLabel()
-            .subscribe(showEmptySearchLabel)
+        begginEdditingSearchTerms
+            .map { true }
+            .bind(to: isEditingSearchTerms)
             .disposed(by: bag)
         
-        updateTableView()
-            .subscribe(showTableView)
+        endEdditingSearchTerms
+            .map { false }
+            .bind(to: isEditingSearchTerms)
             .disposed(by: bag)
         
     }
     
     // MARK: - Methodes
     
-    private func updateEmptySearchLabel() -> Observable<Bool> {
-        Observable.combineLatest(showActivityIndicator, items)
-            .map { !$0.0 && ($0.1.isEmpty || !self.items.hasObservers) }
+    private func showTableView() -> Driver<Bool> {
+        Observable.combineLatest(isSearching, items)
+            .map { !$0.0 && !$0.1.isEmpty }
+            .asDriver(onErrorJustReturn: false)
     }
     
-    private func updateTableView() -> Observable<Bool> {
-        Observable.combineLatest(showActivityIndicator, items)
-            .map { !$0.0 && !$0.1.isEmpty }
+    private func showEmptySearchLabel() -> Driver<Bool> {
+        Observable.combineLatest(isSearching, items)
+            .map { !$0.0 && $0.1.isEmpty}
+            .asDriver(onErrorJustReturn: true)
     }
     
     private func fetchReporistories() {
-        showActivityIndicator.onNext(true)
+        isSearching.onNext(true)
         
         validateSearchTerms()
             .flatMap(networkService.fetchRepositories(searchTerms:))
             .map { $0.map { SearchListTableViewCellViewModel(repository: $0) } }
             .subscribe(onNext: { [weak self] repositories in
                 self?.items.onNext(repositories)
-                self?.showActivityIndicator.onNext(false)
+                self?.isSearching.onNext(false)
             }, onError: { [weak self] error in
                 self?.displayedError.onNext(error.localizedDescription)
-                self?.showActivityIndicator.onNext(false)
+                self?.isSearching.onNext(false)
             })
             .disposed(by: bag)
-        
     }
     
     private func validateSearchTerms() -> Observable<String> {
@@ -111,10 +118,14 @@ final class SearchListViewModel: ViewModel {
     
 }
 
+// MARK: - Input / Output
+
 extension SearchListViewModel {
     struct Input {
         var searchterms: AnyObserver<String>
         var searchButtonTapped: AnyObserver<()>
+        var begginEdditingSearchTertms: AnyObserver<()>
+        var endingEdditingSearchTerms: AnyObserver<()>
     }
     
     struct Output {
@@ -123,5 +134,6 @@ extension SearchListViewModel {
         var showEmptySearchLabel: Driver<Bool>
         var showTableView: Driver<Bool>
         var showActivityIndicator: Driver<Bool>
+        var isEdditingSearchTerms: Driver<Bool>
     }
 }
