@@ -12,20 +12,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var mainCoordinator: MainCoordinator?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let appScene = (scene as? UIWindowScene) else { return }
         
         let navigationController = UINavigationController()
         mainCoordinator = MainCoordinator(navigationController: navigationController)
         
-        mainCoordinator?.start()
-        
         let appWindows = UIWindow(frame: appScene.coordinateSpace.bounds)
+        appWindows.windowScene = appScene
         appWindows.rootViewController = navigationController
         appWindows.makeKeyAndVisible()
         
         window = appWindows
+        
+        mainCoordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
