@@ -26,13 +26,13 @@ final class MockMoyaProvider {
     private var dataResponse: DataResponse
     private var httpResponse: HTTPResponse
     
-    private var responseClosure: Endpoint.SampleResponseClosure {
-        switch (httpResponse, dataResponse) {
-        case (.good, .good): return { .networkResponse(200, SampleDataKeeper.repositories.data) }
-        case (.good, .bad): return { .networkResponse(200, Data()) }
-        case (.bad, _): return { .networkResponse(500, Data()) }
-        }
-    }
+//    private var responseClosure: Endpoint.SampleResponseClosure {
+//        switch (httpResponse, dataResponse) {
+//        case (.good, .good): return { .networkResponse(200, SampleDataKeeper.repositories.data) }
+//        case (.good, .bad): return { .networkResponse(200, Data()) }
+//        case (.bad, _): return { .networkResponse(500, Data()) }
+//        }
+//    }
     
     // MARK: - Init
     
@@ -47,7 +47,7 @@ final class MockMoyaProvider {
         let endpoint = { (target: GithubTarget) -> Endpoint in
             
             return Endpoint(url: URL(target: target).absoluteString,
-                            sampleResponseClosure: self.responseClosure,
+                            sampleResponseClosure: self.responseClosure(data: target.sampleData),
                             method: target.method,
                             task: target.task,
                             httpHeaderFields: target.headers)
@@ -57,6 +57,14 @@ final class MockMoyaProvider {
                                                   stubClosure: MoyaProvider.immediatelyStub)
         
         return provider
+    }
+    
+    private func responseClosure(data: Data) -> Endpoint.SampleResponseClosure {
+        switch (httpResponse, dataResponse) {
+        case (.good, .good): return { .networkResponse(200, data) }
+        case (.good, .bad): return { .networkResponse(200, Data()) }
+        case (.bad, _): return { .networkResponse(500, Data()) }
+        }
     }
     
 }

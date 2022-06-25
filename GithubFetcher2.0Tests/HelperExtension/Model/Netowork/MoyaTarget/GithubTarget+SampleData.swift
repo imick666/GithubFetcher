@@ -12,6 +12,7 @@ extension GithubTarget {
     var sampleData: Data {
         switch self {
         case .fetchRepositories(_): return SampleDataKeeper.repositories.data
+        case .fetchRepository(_): return SampleDataKeeper.repository.data
         }
     }
 }

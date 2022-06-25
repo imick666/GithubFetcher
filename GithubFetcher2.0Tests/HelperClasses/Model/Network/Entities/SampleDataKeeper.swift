@@ -10,7 +10,7 @@ import ImageIO
 @testable import GithubFetcher2_0
 
 enum SampleDataKeeper {
-    case repositories
+    case repositories, repository
     
     var data: Data {
         switch self {
@@ -18,7 +18,12 @@ enum SampleDataKeeper {
             let bundle = Bundle(for: MockMoyaProvider.self)
             let url = bundle.url(forResource: "RepositoriesResponse", withExtension: "json")!
             return try! Data(contentsOf: url)
+        case .repository:
+            let bundle = Bundle(for: MockMoyaProvider.self)
+            let url = bundle.url(forResource: "RepositoryResponse", withExtension: "json")!
+            return try! Data(contentsOf: url)
         }
+    
     }
     
     func asObject<T: Codable>() -> T {
@@ -29,6 +34,12 @@ enum SampleDataKeeper {
             
             let searchResult = try! decoder.decode(SearchResult.self, from: self.data)
             return searchResult.items as! T
+        case .repository:
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let searchResult = try! decoder.decode(Repository.self, from: self.data)
+            return searchResult as! T
         }
     }
 }

@@ -33,7 +33,7 @@ case badResponse, BadData, other(_ error: Error)
     init(_ error: Error) {
         switch error {
         case MoyaError.statusCode(_): self = .badResponse
-        case MoyaError.jsonMapping(_): self = .BadData
+        case MoyaError.jsonMapping(_), MoyaError.objectMapping(_, _): self = .BadData
         default: self = .other(error)
         }
     }

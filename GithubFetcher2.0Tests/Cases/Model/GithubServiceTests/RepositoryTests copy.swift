@@ -11,7 +11,7 @@ import RxSwift
 import Moya
 @testable import GithubFetcher2_0
 
-class GithubServiceTests: XCTestCase {
+class RepositoryTests: XCTestCase {
 
     
     // MARK: - Properties
@@ -47,9 +47,9 @@ class GithubServiceTests: XCTestCase {
         mockProvider = MockMoyaProvider(dataResponse: .good, httpResponse: .bad).immediateResponse()
         sut = GithubService(provider: mockProvider)
         
-        let observer = scheduler.createObserver([Repository].self)
+        let observer = scheduler.createObserver(Repository.self)
         
-        sut.fetchRepositories(searchTerms: "")
+        sut.fetchRepository(fullName: "")
             .subscribe(observer)
             .disposed(by: bag)
         
@@ -64,9 +64,9 @@ class GithubServiceTests: XCTestCase {
         mockProvider = MockMoyaProvider(dataResponse: .bad, httpResponse: .good).immediateResponse()
         sut = GithubService(provider: mockProvider)
         
-        let observer = scheduler.createObserver([Repository].self)
+        let observer = scheduler.createObserver(Repository.self)
         
-        sut.fetchRepositories(searchTerms: "")
+        sut.fetchRepository(fullName: "")
             .subscribe(observer)
             .disposed(by: bag)
         
@@ -81,16 +81,16 @@ class GithubServiceTests: XCTestCase {
         mockProvider = MockMoyaProvider(dataResponse: .good, httpResponse: .good).immediateResponse()
         sut = GithubService(provider: mockProvider)
 
-        let observer = scheduler.createObserver([Repository].self)
+        let observer = scheduler.createObserver(Repository.self)
         
-        sut.fetchRepositories(searchTerms: "Test")
+        sut.fetchRepository(fullName: "")
             .subscribe(observer)
             .disposed(by: bag)
         
         scheduler.start()
         
         XCTAssertEqual(observer.events, [
-            .next(0, SampleDataKeeper.repositories.asObject()),
+            .next(0, SampleDataKeeper.repository.asObject()),
             .completed(0)
         ])
     }

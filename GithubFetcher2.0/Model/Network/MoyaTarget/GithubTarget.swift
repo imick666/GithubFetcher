@@ -10,6 +10,7 @@ import Moya
 
 enum GithubTarget {
     case fetchRepositories(searchTerms: String)
+    case fetchRepository(fullName: String)
 }
 
 extension GithubTarget: TargetType {
@@ -20,6 +21,7 @@ extension GithubTarget: TargetType {
     var path: String {
         switch self {
         case .fetchRepositories(_): return "search/repositories"
+        case .fetchRepository(let fullName): return "repos/\(fullName)"
         }
     }
     
@@ -31,6 +33,7 @@ extension GithubTarget: TargetType {
         switch self {
         case .fetchRepositories(let searchTerms):
             return .requestParameters(parameters: ["q": searchTerms], encoding: URLEncoding.queryString)
+        default: return .requestPlain
         }
     }
     

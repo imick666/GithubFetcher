@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		9E5BE003C6C0977C793E422B /* Pods_GithubFetcher2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ECEF6EC6CDB3EC886FA652 /* Pods_GithubFetcher2_0.framework */; };
 		D7518FA61418ABA6684EC78F /* Pods_GithubFetcher2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36789ED58A697AFA1220E0F5 /* Pods_GithubFetcher2_0Tests.framework */; };
-		E00CF3862847591000191E8C /* GithubServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00CF3852847591000191E8C /* GithubServiceTests.swift */; };
+		E00CF3862847591000191E8C /* RepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00CF3852847591000191E8C /* RepositoriesTests.swift */; };
 		E00CF3892847670400191E8C /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00CF3882847670400191E8C /* SearchResult.swift */; };
 		E01C9B6328465E5500CA5B95 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B6228465E5500CA5B95 /* MainCoordinator.swift */; };
 		E01C9B732846632D00CA5B95 /* RepositoriesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E01C9B722846632D00CA5B95 /* RepositoriesResponse.json */; };
-		E01C9B7F284664BD00CA5B95 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B7E284664BD00CA5B95 /* NetworkService.swift */; };
+		E01C9B7F284664BD00CA5B95 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B7E284664BD00CA5B95 /* GithubService.swift */; };
 		E01C9B81284664E300CA5B95 /* GithubTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B80284664E300CA5B95 /* GithubTarget.swift */; };
 		E01C9B8528466A0800CA5B95 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B8428466A0800CA5B95 /* Repository.swift */; };
 		E01C9B8728466BB900CA5B95 /* GFNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9B8628466BB900CA5B95 /* GFNetworkError.swift */; };
@@ -33,6 +33,8 @@
 		E069779D284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E069779C284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift */; };
 		E06977A0284A5E3500EE6F17 /* SearchListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E069779E284A5E3500EE6F17 /* SearchListTableViewCell.swift */; };
 		E06977A1284A5E3500EE6F17 /* SearchListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E069779F284A5E3500EE6F17 /* SearchListTableViewCell.xib */; };
+		E0CF3CCB28674E8E001EA3E7 /* RepositoryResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E0CF3CCA28674E8E001EA3E7 /* RepositoryResponse.json */; };
+		E0CF3CCE28675267001EA3E7 /* RepositoryTests copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CF3CCD28675267001EA3E7 /* RepositoryTests copy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,11 +54,11 @@
 		8FE3332F5B5F7C0A38A0E446 /* Pods-GithubFetcher2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubFetcher2.0.release.xcconfig"; path = "Target Support Files/Pods-GithubFetcher2.0/Pods-GithubFetcher2.0.release.xcconfig"; sourceTree = "<group>"; };
 		A9ECEF6EC6CDB3EC886FA652 /* Pods_GithubFetcher2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubFetcher2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1319FCA72A33CD349AA2184 /* Pods-GithubFetcher2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubFetcher2.0.debug.xcconfig"; path = "Target Support Files/Pods-GithubFetcher2.0/Pods-GithubFetcher2.0.debug.xcconfig"; sourceTree = "<group>"; };
-		E00CF3852847591000191E8C /* GithubServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubServiceTests.swift; sourceTree = "<group>"; };
+		E00CF3852847591000191E8C /* RepositoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesTests.swift; sourceTree = "<group>"; };
 		E00CF3882847670400191E8C /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		E01C9B6228465E5500CA5B95 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E01C9B722846632D00CA5B95 /* RepositoriesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RepositoriesResponse.json; sourceTree = "<group>"; };
-		E01C9B7E284664BD00CA5B95 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E01C9B7E284664BD00CA5B95 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		E01C9B80284664E300CA5B95 /* GithubTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTarget.swift; sourceTree = "<group>"; };
 		E01C9B8428466A0800CA5B95 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		E01C9B8628466BB900CA5B95 /* GFNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFNetworkError.swift; sourceTree = "<group>"; };
@@ -82,6 +84,8 @@
 		E069779C284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		E069779E284A5E3500EE6F17 /* SearchListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListTableViewCell.swift; sourceTree = "<group>"; };
 		E069779F284A5E3500EE6F17 /* SearchListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListTableViewCell.xib; sourceTree = "<group>"; };
+		E0CF3CCA28674E8E001EA3E7 /* RepositoryResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RepositoryResponse.json; sourceTree = "<group>"; };
+		E0CF3CCD28675267001EA3E7 /* RepositoryTests copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryTests copy.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +171,7 @@
 		E01C9B6A2846620400CA5B95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E00CF3852847591000191E8C /* GithubServiceTests.swift */,
+				E0CF3CCC2867522F001EA3E7 /* GithubServiceTests */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				E01C9B722846632D00CA5B95 /* RepositoriesResponse.json */,
+				E0CF3CCA28674E8E001EA3E7 /* RepositoryResponse.json */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -201,7 +206,7 @@
 			children = (
 				E01C9B832846689000CA5B95 /* Entities */,
 				E01C9B822846656000CA5B95 /* MoyaTarget */,
-				E01C9B7E284664BD00CA5B95 /* NetworkService.swift */,
+				E01C9B7E284664BD00CA5B95 /* GithubService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -394,6 +399,15 @@
 			path = SearchListCell;
 			sourceTree = "<group>";
 		};
+		E0CF3CCC2867522F001EA3E7 /* GithubServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0CF3CCD28675267001EA3E7 /* RepositoryTests copy.swift */,
+				E00CF3852847591000191E8C /* RepositoriesTests.swift */,
+			);
+			path = GithubServiceTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,6 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0CF3CCB28674E8E001EA3E7 /* RepositoryResponse.json in Resources */,
 				E01C9B732846632D00CA5B95 /* RepositoriesResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,7 +606,7 @@
 				E03CA8692846582500708AE1 /* AppDelegate.swift in Sources */,
 				E049104E284AAA3500C1C54F /* ViewConstants.swift in Sources */,
 				E01C9B6328465E5500CA5B95 /* MainCoordinator.swift in Sources */,
-				E01C9B7F284664BD00CA5B95 /* NetworkService.swift in Sources */,
+				E01C9B7F284664BD00CA5B95 /* GithubService.swift in Sources */,
 				E03CA86B2846582500708AE1 /* SceneDelegate.swift in Sources */,
 				E06977A0284A5E3500EE6F17 /* SearchListTableViewCell.swift in Sources */,
 				E069779D284A5E1300EE6F17 /* SearchListTableViewCellViewModel.swift in Sources */,
@@ -604,10 +619,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E01C9B91284679E700CA5B95 /* GithubTarget+SampleData.swift in Sources */,
+				E0CF3CCE28675267001EA3E7 /* RepositoryTests copy.swift in Sources */,
 				E01C9B9628467AB800CA5B95 /* SampleDataKeeper.swift in Sources */,
 				E04365BE284A26F800A3D8D6 /* SearchListViewModelTests.swift in Sources */,
 				E00CF3892847670400191E8C /* SearchResult.swift in Sources */,
-				E00CF3862847591000191E8C /* GithubServiceTests.swift in Sources */,
+				E00CF3862847591000191E8C /* RepositoriesTests.swift in Sources */,
 				E01C9B8C2846799800CA5B95 /* MockMoyaProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -812,7 +828,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 772AC0A9B10ACD0501BFAB59 /* Pods-GithubFetcher2.0Tests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -842,7 +858,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C2C37D2CBB83E5766AE11A0 /* Pods-GithubFetcher2.0Tests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

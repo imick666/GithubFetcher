@@ -17,6 +17,7 @@ target 'GithubFetcher2.0' do
     # Pods for testing
     pod 'RxBlocking', '6.5.0'
     pod 'RxTest', '6.5.0'
+    pod 'Moya/RxSwift', '~> 15.0'
     
   end
 end

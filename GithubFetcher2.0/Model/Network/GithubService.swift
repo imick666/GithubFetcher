@@ -38,4 +38,12 @@ final class GithubService {
             .asObservable()
     }
     
+    func fetchRepository(fullName: String) -> Observable<Repository> {
+        provider.rx.request(.fetchRepository(fullName: fullName))
+            .filterSuccessfulStatusAndRedirectCodes()
+            .map(Repository.self, using: decoer)
+            .catch { throw GFNetworkError($0) }
+            .asObservable()
+    }
+    
 }
