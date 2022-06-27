@@ -31,6 +31,7 @@ final class SearchListViewModel: ViewModel {
     private var cancelButtonTapped = PublishSubject<()>()
     private var begginEdditingSearchTerms = PublishSubject<()>()
     private var endEdditingSearchTerms = PublishSubject<()>()
+    private var rowDidSelect = PublishSubject<SearchListTableViewCellViewModel>()
     
     // Output
     private var items = BehaviorSubject<[SearchListTableViewCellViewModel]>(value: [])
@@ -41,6 +42,7 @@ final class SearchListViewModel: ViewModel {
     // Dependencies
     private var networkService: GithubService
     private var bag = DisposeBag()
+    var coordinator: MainCoordinator!
     
     // MARK: - init
     
@@ -51,7 +53,8 @@ final class SearchListViewModel: ViewModel {
                       searchButtonTapped: searchButtonTapped.asObserver(),
                       cancelButtonTapped: cancelButtonTapped.asObserver(),
                       begginEdditingSearchTertms: begginEdditingSearchTerms.asObserver(),
-                      endingEdditingSearchTerms: endEdditingSearchTerms.asObserver())
+                      endingEdditingSearchTerms: endEdditingSearchTerms.asObserver(),
+                      rowDidSelect: rowDidSelect.asObserver())
         
         output = Output(items: items.skip(1).asDriver(onErrorJustReturn: []),
                         displayedError: displayedError.asDriver(onErrorJustReturn: ""),
@@ -60,6 +63,17 @@ final class SearchListViewModel: ViewModel {
                         showActivityIndicator: isSearching.asDriver(onErrorJustReturn: false),
                         isEdditingSearchTerms: isEditingSearchTerms.asDriver(onErrorJustReturn: false),
                         hideKeyboard: hideKeyboard())
+        
+        rowDidSelect
+            .flatMap(\.output!.repository)
+            .map(\.fullName)
+            .subscribe(onNext: { [weak self] fullName in
+                self?.coordinator.showRepository(fullName: fullName)
+            },
+                       onError: { [weak self] error in
+                
+            })
+            .disposed(by: bag)
         
         searchButtonTapped
             .subscribe(onNext: { _ in self.fetchReporistories() })
@@ -142,6 +156,7 @@ extension SearchListViewModel {
         var cancelButtonTapped: AnyObserver<()>
         var begginEdditingSearchTertms: AnyObserver<()>
         var endingEdditingSearchTerms: AnyObserver<()>
+        var rowDidSelect: AnyObserver<SearchListTableViewCellViewModel>
         
     }
     

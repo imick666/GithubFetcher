@@ -90,8 +90,11 @@ class SearchListViewController: UIViewController {
             searchBar.rx.textDidBeginEditing
                 .bind(to: viewModel.input.begginEdditingSearchTertms),
             searchBar.rx.textDidEndEditing
-                .bind(to: viewModel.input.endingEdditingSearchTerms)
+                .bind(to: viewModel.input.endingEdditingSearchTerms),
             
+            // TableView
+            tableView.rx.modelSelected(SearchListTableViewCellViewModel.self)
+                .bind(to: viewModel.input.rowDidSelect)
         )
     }
     

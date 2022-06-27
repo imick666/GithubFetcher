@@ -28,7 +28,15 @@ final class MainCoordinator: Coordinator {
         let vc = SearchListViewController()
         vc.title = "Github Fetcher"
         vc.viewModel = SearchListViewModel()
+        vc.viewModel.coordinator = self
         navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showRepository(fullName: String) {
+        let vc = RepositoryViewController()
+        vc.viewModel = RepositoryViewModel()
+        vc.viewModel.fetchrepository(fullName: fullName)
         navigationController.pushViewController(vc, animated: true)
     }
 }
